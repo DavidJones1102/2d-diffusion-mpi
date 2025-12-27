@@ -9,7 +9,7 @@ def get_index(x, y, N):
     return y*N + x
 
 def get_value(matrix, upper_row, lower_row, x, y, N):
-    # Boundary condition
+    # Boundary condition on x
     if x < 0 or x >= N:
         return 0.0
     rows_in_chunk = matrix.shape[0] // N
@@ -27,6 +27,7 @@ def step(local_data, start_row, end_row, N, dx, dy, dt):
     local_height = end_row - start_row
     
     reqs = []
+    # Boundary condition on y
     upper_row = np.zeros(N, dtype=old.dtype)
     lower_row = np.zeros(N, dtype=old.dtype)
     if rank != 0:
