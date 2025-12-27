@@ -1,0 +1,1 @@
+mpiexec -n 4 python solution.py --N 20 --steps 100 
